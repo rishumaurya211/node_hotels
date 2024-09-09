@@ -1,10 +1,17 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Define the connection string correctly without extra spaces
-const connectionString = 'mongodb://localhost:27017/mydatabase';
+//const monogURL = process.env.MONGODB_URL_LOCAL;
+
+
+
+// dotenv 
+const monogURL = process.env.MONGODB_URL;
+
 
 // Connect to MongoDB using mongoose
-mongoose.connect(connectionString)
+mongoose.connect(monogURL)
     .then(() => {
         console.log('Connected to MongoDB');
     })
